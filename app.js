@@ -152,26 +152,31 @@ function fifth() {
 person.addEventListener("keyup", function () {
   if (person.value.match(namePattern)) {
     person.classList.add("valid");
-    user.innerHTML = person.value;
     notif1.innerHTML = "";
+    localStorage.setItem("name", JSON.stringify(person.value.trim()));
+    user.innerHTML = JSON.parse(localStorage.getItem("name"));
   }
 });
+user.innerHTML = JSON.parse(localStorage.getItem("name"));
 
 cardNumber.addEventListener("keyup", function () {
   if (cardNumber.value.match(cardPattern)) {
     cardNumber.classList.add("valid");
     notif2.innerHTML = "";
-    numbers.innerHTML = cardNumber.value;
+    localStorage.setItem("card", JSON.stringify(cardNumber.value));
+    numbers.innerHTML = JSON.parse(localStorage.getItem("card"));
   } else {
     numbers.innerHTML = cardNumber.value;
   }
 });
+numbers.innerHTML = JSON.parse(localStorage.getItem("card"));
 
 expiry1.addEventListener("keyup", function () {
   if (expiry1.value.match(expiryPattern1)) {
     expiry1.classList.add("valid");
     notif3.innerHTML = "";
-    exp1.innerHTML = expiry1.value;
+    localStorage.setItem("exp1", JSON.stringify(expiry1.value));
+    exp1.innerHTML = JSON.parse(localStorage.getItem("exp1"));
   }
   if (expiry1.value > 12 || expiry1.value === "00") {
     expiry1.value = 12;
@@ -179,25 +184,30 @@ expiry1.addEventListener("keyup", function () {
     exp1.innerHTML = expiry1.value;
   }
 });
+exp1.innerHTML = JSON.parse(localStorage.getItem("exp1"));
 
 expiry2.addEventListener("keyup", function () {
   if (expiry2.value.match(expiryPattern2)) {
     expiry2.classList.add("valid");
     notif5.innerHTML = "";
-    exp2.innerHTML = expiry2.value;
+    localStorage.setItem("exp2", JSON.stringify(expiry2.value));
+    exp2.innerHTML = JSON.parse(localStorage.getItem("exp2"));
   } else {
     expiry2.classList.add("invalid");
     exp2.innerHTML = expiry2.value;
   }
 });
+exp2.innerHTML = JSON.parse(localStorage.getItem("exp2"));
 
 cvc.addEventListener("keyup", function () {
   if (cvc.value.match(cvcPattern)) {
     cvc.classList.add("valid");
     notif4.innerHTML = "";
-    cvcInfo.innerHTML = cvc.value;
+    localStorage.setItem("cvc", JSON.stringify(cvc.value));
+    cvcInfo.innerHTML = JSON.parse(localStorage.getItem("cvc"));
   } else {
     cvc.classList.add("invalid");
     cvcInfo.innerHTML = cvc.value;
   }
 });
+cvcInfo.innerHTML = JSON.parse(localStorage.getItem("cvc"));
