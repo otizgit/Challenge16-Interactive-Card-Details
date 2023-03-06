@@ -184,7 +184,7 @@ expiry1.addEventListener("keyup", function () {
     exp1.innerHTML = expiry1.value;
   }
 });
-exp1.innerHTML = JSON.parse(localStorage.getItem("exp1"));
+exp1.innerHTML = JSON.parse(localStorage.getItem("exp1")) + "/";
 
 expiry2.addEventListener("keyup", function () {
   if (expiry2.value.match(expiryPattern2)) {
